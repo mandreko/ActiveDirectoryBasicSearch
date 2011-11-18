@@ -81,7 +81,6 @@ namespace ActiveDirectoryBasicSearch
             dt.Columns.Add("DisplayName");
             dt.Columns.Add("Phone");
             dt.Columns.Add("Office");
-            dt.Columns.Add("Ext");
 
             DirectoryEntry de = GetDirectoryEntry();
             DirectorySearcher ds = new DirectorySearcher(de);
@@ -102,7 +101,6 @@ namespace ActiveDirectoryBasicSearch
                 dr["DisplayName"] = dey.Properties["cn"].Value;
                 dr["Phone"] = dey.Properties["telephoneNumber"].Value;
                 dr["Office"] = dey.Properties["department"].Value;
-                dr["Ext"] = dey.Properties["telephoneNumber"].Value;
                 dt.Rows.Add(dr);
                 dey.Close();
             }

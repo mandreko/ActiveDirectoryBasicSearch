@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" defaultbutton="submitButton">
         <div id="search">
             Name: <asp:TextBox runat="server" ID="nameTextBox" ></asp:TextBox>
             
@@ -18,16 +18,16 @@
         </div>
         <div id="searchResults">
             <asp:GridView ID="searchResultsGrid" runat="server" AutoGenerateColumns="False" 
-                EmptyDataText="No Contacts Found">
+                          EmptyDataText="No Contacts Found">
                 <Columns>
                     <asp:BoundField DataField="DisplayName" HeaderText="Display Name" />
                     <asp:BoundField DataField="Phone" HeaderText="Phone" />
                     <asp:BoundField DataField="Office" HeaderText="Office" />
-                    <asp:BoundField DataField="Ext" HeaderText="Ext."/>
                 </Columns>
             </asp:GridView>
         </div>
         
     </form>
+    
 </body>
 </html>
