@@ -85,12 +85,7 @@ namespace ActiveDirectoryBasicSearch
             DirectoryEntry de = GetDirectoryEntry();
             DirectorySearcher ds = new DirectorySearcher(de);
 
-            StringBuilder filter = new StringBuilder();
-            filter.Append("(&(objectCategory=Person)(objectClass=user)(givenName=");
-            filter.Append(name);
-            filter.Append("))");
-
-            ds.Filter = filter.ToString();
+            ds.Filter = string.Format("(&(objectCategory=Person)(objectClass=user)(|(givenName={0})(sn={0})))", name);
             ds.SearchScope = SearchScope.Subtree;
             SearchResultCollection results = ds.FindAll();
 
