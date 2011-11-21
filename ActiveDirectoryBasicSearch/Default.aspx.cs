@@ -81,6 +81,10 @@ namespace ActiveDirectoryBasicSearch
             dt.Columns.Add("DisplayName");
             dt.Columns.Add("Phone");
             dt.Columns.Add("Office");
+            dt.Columns.Add("Title");
+            dt.Columns.Add("Street");
+            dt.Columns.Add("City");
+            dt.Columns.Add("Zip");
 
             DirectoryEntry de = GetDirectoryEntry();
             DirectorySearcher ds = new DirectorySearcher(de);
@@ -97,6 +101,10 @@ namespace ActiveDirectoryBasicSearch
                 dr["DisplayName"] = dey.Properties["cn"].Value;
                 dr["Phone"] = dey.Properties["telephoneNumber"].Value;
                 dr["Office"] = dey.Properties["department"].Value;
+                dr["Title"] = dey.Properties["description"].Value;
+                dr["Street"] = dey.Properties["streetAddress"].Value;
+                dr["City"] = dey.Properties["l"].Value;
+                dr["Zip"] = dey.Properties["postalCode"].Value;
                 dt.Rows.Add(dr);
                 dey.Close();
             }

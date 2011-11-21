@@ -23,6 +23,10 @@
                     <asp:BoundField DataField="DisplayName" HeaderText="Display Name" />
                     <asp:BoundField DataField="Phone" HeaderText="Phone" />
                     <asp:BoundField DataField="Office" HeaderText="Office" />
+                    <asp:BoundField DataField="Title" HeaderText="Title" />
+                    <asp:BoundField DataField="Street" HeaderText="Street" />
+                    <asp:BoundField DataField="City" HeaderText="City" />
+                    <asp:BoundField DataField="Zip" HeaderText="Zip" />
                 </Columns>
             </asp:GridView>
         </div>
