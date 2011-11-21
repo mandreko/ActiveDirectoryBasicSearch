@@ -85,7 +85,8 @@ namespace ActiveDirectoryBasicSearch
             DirectoryEntry de = GetDirectoryEntry();
             DirectorySearcher ds = new DirectorySearcher(de);
 
-            ds.Filter = string.Format("(&(objectCategory=Person)(objectClass=user)(|(givenName={0})(sn={0})))", name);
+            // Fix for Eph to make sure search is case insensitive by using the :caseIgnoreMatch: properties
+            ds.Filter = string.Format("(&(objectCategory=Person)(objectClass=user)(|(givenName:caseIgnoreMatch:={0})(sn:caseIgnoreMatch:={0})))", name);
             ds.SearchScope = SearchScope.Subtree;
             SearchResultCollection results = ds.FindAll();
 
